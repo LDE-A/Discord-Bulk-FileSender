@@ -7,7 +7,7 @@
 5.このpyファイル実行
 (もちろんだけど8mb以上のものnitroないとはアップロードできないです)
 """
-TOKEN = "ODIzMzI3Mzg1MTIxODQ5MzQ0.YngJbw.jRNGdTC_7GE-ejj5gOJtZiUNgTc" #自分のDISCORD TOKEN(str)
+TOKEN = "" #自分のDISCORD TOKEN(str)
 channel = 982609464618270740 #送信したいチャンネルID(int)
 nitro = "None" #None,Classic,Normalのどれか
 
