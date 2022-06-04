@@ -8,7 +8,7 @@
 (もちろんだけど8mb以上のものnitroないとはアップロードできないです)
 """
 TOKEN = "" #自分のDISCORD TOKEN(str)
-channel = 982609464618270740 #送信したいチャンネルID(int)
+channel = 123456789876543210 #送信したいチャンネルID(int)
 nitro = "None" #None,Classic,Normalのどれか
 
 import os
