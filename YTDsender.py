@@ -5,6 +5,7 @@
 3.requirementsに書いてあるライブラリをpipでインストール
 4.下のTOKENとchannelにdiscordのTOKENとチャンネルIDを入れる
 5.このpyファイル実行
+6.プレイリストのURLをdiscordで送信(公開か限定公開でないとエラー発生します)
 (もちろんだけど8mb以上のものnitroないとはアップロードできないです)
 """
 TOKEN = "" #自分のDISCORD TOKEN(str)
