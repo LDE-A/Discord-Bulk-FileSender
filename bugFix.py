@@ -1,4 +1,4 @@
-#pytubeのエラーがでたらこのファイルを実行してください
+#pytubeのエラーが出た場合このファイルを実行してください
 import os
 import sys
 import glob
