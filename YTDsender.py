@@ -48,7 +48,7 @@ async def on_message(message):
         for vid in pl.videos:
             try:
                 vid.streams.filter(only_audio=True)[0].download(path)
-                title = vid.title.translate(str.maketrans("","",r'\\/:*?"<>|.'))
+                title = vid.title.translate(str.maketrans("","",r'\\/:*?"<>|.#'))
                 os.rename(f"{path}/{title}.mp4",f"{path}/{title}.mp3")
                 filesize = os.path.getsize(f"{path}/{title}.mp3")
                 if filesize < maxFilesize:
@@ -62,7 +62,7 @@ async def on_message(message):
                     print(title + "のアップロード失敗(容量上限)")
             except Exception:
                 try:
-                    os.remove(path + "/" + vid.title.translate(str.maketrans("","",r'\\/:*?"<>|.')) + ".mp4")
+                    os.remove(path + "/" + vid.title.translate(str.maketrans("","",r'\\/:*?"<>|.#')) + ".mp4")
                 except Exception as e:
                     print("エラー発生:" + str(e))
         print("作業が完了しました。ウィンドウを閉じます")
