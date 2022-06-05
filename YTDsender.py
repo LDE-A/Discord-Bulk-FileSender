@@ -43,7 +43,7 @@ async def on_message(message):
     if "list=" in url:
         maxFilesize = 8388605 if nitro == "None" else 52428795 if nitro == "Classic" else 104857600
         pl = Playlist(url)
-        print(f"「{pl.title}」内の動画をバックアップ中")
+        print(f"「{pl.title}」内の動画を送信中")
         ch = client.get_channel(channel)
         for vid in pl.videos:
             try:
@@ -55,11 +55,11 @@ async def on_message(message):
                     file = f"{path}/{title}.mp3"
                     await ch.send(f"`{title}`",file=discord.File(file))
                     os.remove(f"{path}/{title}.mp3")
-                    print(title + "のアップロード完了")
+                    print(f"[+] {title}のアップロード完了")
                     time.sleep(1)
                 else:
                     os.remove(f"{path}/{title}.mp3")
-                    print(title + "のアップロード失敗(容量上限)")
+                    print(f"[x] {title}のアップロード失敗(容量上限)")
             except Exception:
                 try:
                     os.remove(path + "/" + vid.title.translate(str.maketrans("","",r'\\/:*?"<>|.#~;')) + ".mp4")
