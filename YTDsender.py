@@ -41,8 +41,11 @@ async def on_message(message):
         pass
     if "list=" in url:
         maxFilesize = 8388605 if nitro == "None" else 52428795 if nitro == "Classic" else 104857600
-        pl = Playlist(url)
-        print(f"「{pl.title}」内の動画を送信中")
+        try:
+            pl = Playlist(url)
+            print(f"「{pl.title}」内の動画を送信中")
+        except Exception:
+            print("プレイリストが非公開になっている可能性があります\nプレイリストの公開設定を公開もしくは限定公開にしてください")
         ch = client.get_channel(message.channel.id)
         for vid in pl.videos:
             try:
@@ -66,7 +69,7 @@ async def on_message(message):
                     print("エラー発生:" + str(e))
         print("作業が完了しました。ウィンドウを閉じます")
         time.sleep(5)
-        quit()
+        exit()
     else:
         pass
 
