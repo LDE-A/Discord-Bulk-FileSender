@@ -3,13 +3,12 @@
 1.pythonをインストール
 2.cmd開いてpy -m pip install pipでpipをインストール
 3.requirementsに書いてあるライブラリをpipでインストール
-4.下のTOKENとchannelにdiscordのTOKENとチャンネルIDを入れる
+4.下のTOKENにdiscordのTOKENを入れる
 5.このpyファイル実行
-6.プレイリストのURLをdiscordで送信(公開か限定公開でないとエラー発生します)
+6.プレイリストのURLを送信したいdiscordのチャンネルに送信(公開か限定公開でないとエラー発生します)
 (もちろんだけど8mb以上のものnitroないとはアップロードできないです)
 """
 TOKEN = "" #自分のDISCORD TOKEN(str)
-channel = 123456789876543210 #送信したいチャンネルID(int)
 nitro = "None" #None,Classic,Normalのどれか
 
 import os
@@ -44,7 +43,7 @@ async def on_message(message):
         maxFilesize = 8388605 if nitro == "None" else 52428795 if nitro == "Classic" else 104857600
         pl = Playlist(url)
         print(f"「{pl.title}」内の動画を送信中")
-        ch = client.get_channel(channel)
+        ch = client.get_channel(message.channel.id)
         for vid in pl.videos:
             try:
                 vid.streams.filter(only_audio=True)[0].download(path)
