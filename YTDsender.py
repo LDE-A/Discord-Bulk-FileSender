@@ -33,7 +33,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.attachments or message.content.startswith("https://") == False:
+    if message.attachments or message.content.startswith("https://") == False or message.author.id != client.user.id:
         return
     url = message.content
     try:
