@@ -70,6 +70,20 @@ async def on_message(message):
         print("作業が完了しました。ウィンドウを閉じます")
         time.sleep(5)
         exit()
+    elif "youtu" in url and "list=" not in url:
+        vid = YouTube(url)
+        vid.streams.filter(only_audio=True)[0].download(path)
+        title = vid.title.translate(str.maketrans("","",r'\\/:*?"<>|.~#;\','))
+        os.rename(f"{path}/{title}.mp4",f"{path}/{title}.mp3")
+        filesize = os.path.getsize(f"{path}/{title}.mp3")
+        if filesize < maxFilesize:
+            file = f"{path}/{title}.mp3"
+            await ch.send(f"`{title}`",file=discord.File(file))
+            os.remove(f"{path}/{title}.mp3")
+            print(f"[+] {title}のアップロード完了")
+        else:
+            os.remove(f"{path}/{title}.mp3")
+            print(f"[x] {title}のアップロード失敗(容量上限)")
     else:
         pass
 
