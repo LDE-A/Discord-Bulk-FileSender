@@ -8,3 +8,5 @@ discordpyのselfbotでやってるのでこのプログラムを実行中に何�
 TOKENの取得方法-->https://shunshun94.github.io/shared/sample/discordAccountToken  
 
 pytubeのエラーが出る場合はbugFix.pyを実行してください
+
+おまけでローカルのフォルダを指定してその中のファイルをすべて送信する機能があります
